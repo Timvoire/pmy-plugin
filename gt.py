@@ -14,7 +14,7 @@ async def get_text(message: Message):
 
 
 async def translate(text):
-    uri = f'https://v.api.aa1.cn/api/api-fanyi-yd/index.php?msg={text}&type=1'
+    uri = f'https://v.api.aa1.cn/api/api-fanyi-yd/index.php?msg={text}&type=3'
     res = await client.get(uri, timeout=10.0)
     if res.status_code == 200:
         text = res.json()['text']
