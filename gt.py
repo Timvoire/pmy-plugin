@@ -8,7 +8,7 @@ import time
 async def get_text(message: Message):
     if reply := message.reply_to_message:
         if reply.text:
-            text = reply.text
+            text = reply.text.replace("\n",',')
             return text
     return ""
 
