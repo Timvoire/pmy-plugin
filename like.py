@@ -2,13 +2,13 @@ from pagermaid.listener import listener
 from pagermaid.enums import Client, Message
 from pagermaid.single_utils import sqlite
 
-
 @listener(command="dz",
           description="点赞")
-async def dz_set(bot: Client, message: Message):
+
+async def dz_set(bot:Client,message:Message):
     try:
         if len(message.parameter) != 2:
-            await message.edit("格式错误")
+                await message.edit("格式错误")
         else:
             uid = message.parameter[-1]
             if message.parameter[0] == "set":
@@ -19,7 +19,6 @@ async def dz_set(bot: Client, message: Message):
                 await message.edit("删除成功")
     except Exception as e:
         return
-
 
 @listener(is_plugin=True, incoming=True, ignore_edited=True)
 async def dianzan(bot: Client, message: Message):
@@ -32,6 +31,6 @@ async def dianzan(bot: Client, message: Message):
                 chat_id=message.chat.id,
                 message_id=message.id,
                 emoji="🐳",
-            )
+        )
     except Exception as e:
         return
